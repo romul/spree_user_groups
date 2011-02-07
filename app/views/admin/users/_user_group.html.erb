@@ -1,0 +1,9 @@
+<p>
+  <label><%= t("user_group") %></label><br />
+  <% for group in UserGroup.all %>
+    <label class="sub">
+      <%= f.radio_button(:user_group_id, group.id) %>
+      <%= group.name %>
+    </label> &nbsp;
+  <% end %>
+</p>
