@@ -10,6 +10,15 @@ module SpreeUserGroups
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.env.production? ? require(c) : load(c)
       end
+      
+      if File.basename( $0 ) != "rake"
+        begin
+          UserGroup.register_calculator(Calculator::AdvancedFlatPercent)
+        rescue Exception => e
+          $stderr.puts "Error registering promotion calculator #{Calculator::AdvancedFlatPercent}"
+        end
+        
+      end
     end
 
     config.to_prepare &method(:activate).to_proc

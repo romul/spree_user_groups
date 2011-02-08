@@ -2,11 +2,4 @@
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 <% end %>
-<%= f.field_container :based_on_cost_price do %>
-  <%= f.radio_button :based_on_cost_price, true %> <%= f.label :based_on_cost_price %><br />
-  <%= f.radio_button :based_on_cost_price, false %> <%= f.label :based_on_cost_price, t("based_on_master_price")%>
-<% end %>
-<%= f.field_container :percent do %>
-  <%= f.label :percent %><br />
-  <%= f.text_field :percent %>
-<% end %>
+<%= render "admin/shared/calculator_fields", :f => f %>

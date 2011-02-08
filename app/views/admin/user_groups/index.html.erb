@@ -17,8 +17,7 @@
   <thead>
     <tr>
       <th><%= UserGroup.human_attribute_name(:name) %></th>
-      <th><%= UserGroup.human_attribute_name(:based_on_cost_price) %></th>
-      <th><%= UserGroup.human_attribute_name(:percent) %></th>
+      <th><%= t(:description) %>
       <th></th>
     </tr>
   </thead>
@@ -26,8 +25,7 @@
     <% @user_groups.each do |user_group|%>
       <tr id="<%= dom_id user_group %>">
         <td><%= user_group.name %></td>
-        <td><%= user_group.based_on_cost_price.to_s.titleize %></td>
-        <td><%= user_group.percent %></td>
+        <td><%= user_group.calculator_description %></td>
         <td class="actions">
           <%= link_to_edit user_group %> &nbsp;
           <%= link_to_delete user_group %>

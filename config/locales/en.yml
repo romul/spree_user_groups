@@ -3,13 +3,12 @@ en:
     attributes:
       address:
         name: "Name"
-        based_on_cost_price: "Based on cost price"
-        percent: "Percent"
-  
   
   user_group: "User Group"
   listing_user_groups: "User Groups"
   new_user_group: "New user group"
   editing_user_group: "Editing user group"
+  based_on_cost_price: "Based on cost price"
   based_on_master_price: "Based on master price"
+  advanced_flat_percent: "Advanced Flat Percent"
 
