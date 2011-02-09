@@ -15,6 +15,7 @@ class Calculator::AdvancedFlatPercent < Calculator
     return unless object.present? and object.line_items.present? and object.user.present?
 
     part = self.preferred_flat_percent.abs / 100.0
+    item_total = object.line_items.map(&:amount).sum
     
     if self.preferred_based_on_cost_price
       item_cost_price_total = object.line_items.map do |li|
@@ -24,10 +25,9 @@ class Calculator::AdvancedFlatPercent < Calculator
           li.amount # ??? or should we raise exception in this case ?
         end
       end.sum
-      (item_cost_price_total * (1 + part)).round(2)
+      (item_cost_price_total * (1 + part) - item_total).round(2)
     else
-      item_total = object.line_items.map(&:amount).sum
-      (item_total * (1 - part)).round(2)
+      (item_total * (-part)).round(2)
     end
   end
   
