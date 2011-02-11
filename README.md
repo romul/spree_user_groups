@@ -1,13 +1,17 @@
 SpreeUserGroups
 ===============
 
-Introduction goes here.
+Introduces user groups and calculator to add adjustment for specified user group.
 
 
-Example
-=======
+Installation
+============
 
-Example goes here.
+      Add `gem "spree_user_groups", :git => "git://github.com/romul/spree_user_groups.git"`
+      Run `bundle install`
+      Run `rake spree_user_groups:install`
+      Run `rake db:migrate`
 
 
-Copyright (c) 2011 [name of extension creator], released under the New BSD License
+
+Copyright (c) 2011 Roman Smirnov, released under the New BSD License
