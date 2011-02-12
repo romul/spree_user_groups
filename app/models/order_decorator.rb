@@ -1,12 +1,14 @@
-Order.state_machines[:state].after_transition :to => 'delivery', :do => :create_adjustment_for_user_group!
-
 Order.class_eval do
-  
-  def create_adjustment_for_user_group!
-    user = User.current || self.user
-    if user && user.user_group
-      user.user_group.create_adjustment(I18n.t(:user_group), self, self, true)
-    end
-  end
 
+  # Associates the specified user with the order and destroys any previous association with guest user if necessary.
+  def associate_user!(user)
+    self.user = user
+    self.email = user.email
+    
+    # Create adjustment for user group
+    self.user.create_adjustment_for(self)
+    
+    # disable validations since this can cause issues when associating an incomplete address during the address step
+    save(:validate => false)
+  end
 end

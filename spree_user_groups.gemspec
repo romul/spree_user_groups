@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.has_rdoc = true
 
   s.add_dependency('spree_core', '>= 0.30.1')
+  s.add_dependency('spree_auth', '>= 0.30.1')
 end
