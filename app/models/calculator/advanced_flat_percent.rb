@@ -22,7 +22,7 @@ class Calculator::AdvancedFlatPercent < Calculator
         if !li.variant.cost_price.nil? && li.variant.cost_price > 0
           li.variant.cost_price * li.quantity
         else
-          li.amount # ??? or should we raise exception in this case ?
+          li.amount
         end
       end.sum
       (item_cost_price_total * (1 + part) - item_total).round(2)
@@ -38,7 +38,7 @@ class Calculator::AdvancedFlatPercent < Calculator
       if !variant.cost_price.nil? && variant.cost_price > 0
         variant.cost_price * (1 + part)
       else
-        variant.price # ??? or should we raise exception in this case ?
+        variant.price
       end
     else
       variant.price * (1 - part)
