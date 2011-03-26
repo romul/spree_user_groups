@@ -1,8 +1,8 @@
 CheckoutController.class_eval do
   private
   def before_address
-    @order.bill_address ||= Address.new(:country => default_country)
-    @order.ship_address ||= Address.new(:country => default_country)
+    @order.bill_address ||= Address.default
+    @order.ship_address ||= Address.default
     
     @order.user.create_adjustment_for(@order) if @order.user
   end
