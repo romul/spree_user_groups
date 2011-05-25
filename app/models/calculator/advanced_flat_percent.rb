@@ -6,6 +6,14 @@ class Calculator::AdvancedFlatPercent < Calculator
     I18n.t("advanced_flat_percent")
   end
 
+  def description
+    if self.preferred_based_on_cost_price
+      "#{I18n.t(:cost_price)} + #{self.preferred_flat_percent}%"
+    else
+      "#{I18n.t(:price)} - #{self.preferred_flat_percent}%"
+    end
+  end
+
   def self.register
     super
     UserGroup.register_calculator(self)
