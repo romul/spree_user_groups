@@ -27,6 +27,7 @@
         <td><%= user_group.name %></td>
         <td><%= user_group.calculator_description %></td>
         <td class="actions">
+		  <%= link_to 'Pricing',"/admin/user_groups/#{user_group.id}/pricing" if user_group.calculator.class == Calculator::PerVariantPricing %> &nbsp;
           <%= link_to_edit user_group %> &nbsp;
           <%= link_to_delete user_group %>
       </tr>

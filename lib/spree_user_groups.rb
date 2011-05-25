@@ -14,6 +14,7 @@ module SpreeUserGroups
       if File.basename( $0 ) != "rake"
         begin
           UserGroup.register_calculator(Calculator::AdvancedFlatPercent)
+          UserGroup.register_calculator(Calculator::PerVariantPricing)
         rescue Exception => e
           $stderr.puts "Error registering promotion calculator #{Calculator::AdvancedFlatPercent}"
         end
