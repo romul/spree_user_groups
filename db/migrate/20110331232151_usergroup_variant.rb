@@ -3,7 +3,7 @@ class UsergroupVariant < ActiveRecord::Migration
 	      create_table :user_groups_variants do |t|
 		      t.integer :user_group_id
 		      t.integer :variant_id
-		      t.decimal :price
+		      t.decimal :price, :precision => 8, :scale => 2
 		      t.timestamps
 	    end
   end
