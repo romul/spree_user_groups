@@ -7,4 +7,8 @@ User.class_eval do
       self.user_group.create_adjustment(I18n.t(:user_group_adjustment), order, order, true)
     end
   end
+  
+  def user_group_name
+    self.user_group.name
+  end
 end
