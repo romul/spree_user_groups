@@ -11,4 +11,9 @@ Order.class_eval do
     # disable validations since this can cause issues when associating an incomplete address during the address step
     save(:validate => false)
   end
+  
+  def user_group_total
+    adjustments.user_group_adjustments.map(&:amount).sum
+  end
+
 end

@@ -13,4 +13,4 @@ de:
   based_on_master_price: "Basierend auf Verkaufspreis"
   advanced_flat_percent: "Advanced Flat Percent"
   manage_user_groups: "Benutzergruppen verwalten"
-  user_group_adjustment: "Benutzergruppe"
+  user_group_adjustment: "Benutzergruppe (%{name})"

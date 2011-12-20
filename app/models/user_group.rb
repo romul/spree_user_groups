@@ -1,5 +1,6 @@
 class UserGroup < ActiveRecord::Base
   has_many :users, :dependent => :nullify
+  belongs_to :tax_category
   validates :name, :presence => true
   
   calculated_adjustments

@@ -2,4 +2,10 @@
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 <% end %>
+
+<%= f.field_container :tax_category do %>
+  <%= f.label :tax_category %>
+  <%= f.select "tax_category_id", options_from_collection_for_select(
+    TaxCategory.all, "id", "name", @object.tax_category_id )%>
+<% end %>
 <%= render "admin/shared/calculator_fields", :f => f %>
