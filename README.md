@@ -1,4 +1,4 @@
-SpreeUserGroups
+Spree User Groups
 ===============
 
 Introduces user groups and calculator to add adjustment for specified user group.
@@ -7,10 +7,9 @@ Introduces user groups and calculator to add adjustment for specified user group
 Installation
 ============
 
-      Add `gem "spree_user_groups", '>=0.40.1'`
-      Run `bundle install`
-      Run `rake spree_user_groups:install`
-      Run `rake db:migrate`
+      Add `gem "spree_user_groups", :git => "https://github.com/levymetal/spree_user_groups.git"`
+      Run `bundle`
+      Run `bundle exec rails g spree_user_groups:install`
 
 
 

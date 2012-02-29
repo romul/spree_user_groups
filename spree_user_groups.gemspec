@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_user_groups'
-  s.version     = '0.40.1'
+  s.version     = '1.0.0'
   s.summary     = 'Adds user groups'
   s.description = 'Provides opportunity to add some rules for calculation price depending on the user group'
   s.required_ruby_version = '>= 1.8.7'
@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = true
 
-  s.add_dependency('spree_core', '>= 0.40.1')
-  s.add_dependency('spree_auth', '>= 0.40.1')
+  s.add_dependency('spree_core', '>= 1.0.0')
+  s.add_dependency('spree_auth', '>= 1.0.0')
 end
