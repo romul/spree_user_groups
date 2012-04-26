@@ -1,0 +1,28 @@
+<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
+
+<%= render :partial => 'spree/admin/shared/product_tabs', :locals => {:current => 'Pricing'} %>
+
+<%= form_for :admin_product_pricing do |form| %>
+<input type="hidden" name="product_id" value="<%= @product.id %>">
+  <table class="index">
+    <th><%= "User Group" %></th>
+    <th><%= "Price" %></th>
+    <tr>
+      <td>Master Price</td>
+      <td><%= @product.price %></td>
+    </tr>
+    <% Spree::UserGroup.all.each do |group| %>
+      <% price = Spree::Variant.find(@product.id).price_for_group(group) %>
+      <% next if group.calculator.class != Spree::Calculator::PerVariantPricing %>
+      <tr>
+        <td><%= group.name %></td>
+        <td>
+          <input name="price[<%= @product.id %>][<%= group.id %>]" value="<%= price %>">
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <p class="form-buttons" data-hook="buttons">
+    <%= button t(:update) %>
+  </p>
+<% end %>

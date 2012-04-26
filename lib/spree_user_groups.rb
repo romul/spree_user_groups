@@ -13,6 +13,7 @@ module SpreeUserGroups
     initializer "spree.user_groups.register_calculators" do |app|
       app.config.spree.calculators.add_class('user_groups')
       app.config.spree.calculators.user_groups << Spree::Calculator::AdvancedFlatPercent
+      app.config.spree.calculators.user_groups << Spree::Calculator::PerVariantPricing
     end
 
     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/models/spree/calculator)

@@ -7,10 +7,13 @@ module Spree
       I18n.t("advanced_flat_percent")
     end
 
-    # def self.register
-    #   super
-    #   UserGroup.register_calculator(self)
-    # end
+    def description
+      if self.preferred_based_on_cost_price
+        "#{I18n.t(:cost_price)} + #{self.preferred_flat_percent}%"
+      else
+        "#{I18n.t(:price)} - #{self.preferred_flat_percent}%"
+      end
+    end
 
     def compute(object)
       return unless object.present? and object.line_items.present? and object.user.present?
