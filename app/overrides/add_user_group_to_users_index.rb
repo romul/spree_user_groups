@@ -6,4 +6,4 @@ Deface::Override.new(:virtual_path => "spree/admin/users/index",
 Deface::Override.new(:virtual_path => "spree/admin/users/index",
                      :name => "add_user_group_to_user_index_list",
                      :insert_before => "[data-hook='admin_users_index_row_actions']",
-                     :text => '<td width="100px"><%= user.user_group.name if user.user_group %></td>')
+                     :text => '<td width="220px"><%= user.user_group.name if user.user_group %></td>')
