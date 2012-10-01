@@ -18,9 +18,6 @@ class Spree::Admin::UserGroupsController < Spree::Admin::ResourceController
       wants.js
     end
   end
-  #update.wants.html { redirect_to edit_object_url }
-  #create.wants.html { redirect_to edit_object_url }
-  #destroy.success.wants.js { render_js_for_destroy }
 
   def pricing
     @group = Spree::UserGroup.find(params[:id])
