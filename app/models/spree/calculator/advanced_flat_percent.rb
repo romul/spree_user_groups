@@ -1,4 +1,4 @@
-class Calculator::AdvancedFlatPercent < Calculator
+class Spree::Calculator::AdvancedFlatPercent < Spree::Calculator
   preference :flat_percent, :decimal, :default => 0
   preference :based_on_cost_price, :boolean, :default => false
 
@@ -12,11 +12,6 @@ class Calculator::AdvancedFlatPercent < Calculator
     else
       "#{I18n.t(:price)} - #{self.preferred_flat_percent}%"
     end
-  end
-
-  def self.register
-    super
-    UserGroup.register_calculator(self)
   end
 
   def compute(object)

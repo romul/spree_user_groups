@@ -1,5 +1,4 @@
-class Calculator::PerVariantPricing < Calculator
-
+class Spree::Calculator::PerVariantPricing < Spree::Calculator
   def self.description
     I18n.t("per_variant_pricing")
   end
@@ -12,11 +11,6 @@ class Calculator::PerVariantPricing < Calculator
     true
   end
 
-  def self.register
-    super
-    UserGroup.register_calculator(self)
-  end
-
   def compute(object)
 
     return unless object.present? and object.line_items.present? and object.user.present? and object.user.user_group.present?
@@ -24,7 +18,7 @@ class Calculator::PerVariantPricing < Calculator
     item_total = object.line_items.map(&:amount).sum
     
     item_cost_price_total = object.line_items.map do |li| 
-        (li.variant.price * li.quantity) - ((UserGroupsVariant.where(:user_group_id => object.user.user_group.id, :variant_id => li.variant).try(:first).try(:price) || li.variant.price) * li.quantity)
+        (li.variant.price * li.quantity) - ((Spree::UserGroupsVariant.where(:user_group_id => object.user.user_group.id, :variant_id => li.variant).try(:first).try(:price) || li.variant.price) * li.quantity)
     end.sum
     
     0 - item_cost_price_total
