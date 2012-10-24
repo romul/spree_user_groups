@@ -3,13 +3,13 @@ class CreateUserGroups < ActiveRecord::Migration
     create_table :user_groups do |t|
       t.string  :name
     end
-    change_table :users do |t|
+    change_table :spree_users do |t|
       t.integer :user_group_id
     end
   end
 
   def self.down
-    change_table :users do |t|
+    change_table :spree_users do |t|
       t.remove :user_group_id
     end
     drop_table :user_groups

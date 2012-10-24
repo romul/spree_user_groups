@@ -13,5 +13,6 @@ en:
   based_on_master_price: "Based on master price"
   advanced_flat_percent: "Advanced Flat Percent"
   manage_user_groups: "Manage user groups"
-  user_group_adjustment: "User Group"
+  user_group_adjustment: "User Discount"
+  per_variant_pricing: "Per Variant Pricing"
 
