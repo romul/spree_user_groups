@@ -17,7 +17,8 @@ module SpreeUserGroups
         rescue Exception => e
           $stderr.puts "Error registering promotion calculator #{Calculator::AdvancedFlatPercent}"
         end
-        
+        Spree::Config.set :default_user_group => "Standard"
+        UserGroup.find_or_create_by_name Spree::Config["Standard"]
       end
     end
 

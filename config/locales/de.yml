@@ -1,0 +1,16 @@
+de:
+  activerecord:
+    attributes:
+      address:
+        name: "Name"
+  
+  user_group: "Benutzergruppe"
+  user_groups: "Benutzergruppem"
+  listing_user_groups: "Benutzergruppen"
+  new_user_group: "Neue Benutzergruppen"
+  editing_user_group: "Benutzergruppe bearbeiten"
+  based_on_cost_price: "Basierend auf Einkaufspreis"
+  based_on_master_price: "Basierend auf Verkaufspreis"
+  advanced_flat_percent: "Advanced Flat Percent"
+  manage_user_groups: "Benutzergruppen verwalten"
+  user_group_adjustment: "Benutzergruppe (%{name})"
