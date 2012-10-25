@@ -2,7 +2,7 @@
 <% curr_product = '' %>
 <table>
 	<%= form_for @group do |form| %>
-	<% Variant.order(:product_id).each do |v|%>
+	<% Spree::Variant.order(:product_id).each do |v|%>
 	<% if curr_product != v.product_id%>
 	<% curr_product = v.product_id %>
 	<tr>
@@ -12,7 +12,7 @@
 	</tr>
 	<% end %>
 
-	<% ugv = UserGroupsVariant.where(:user_group_id => @group).where(:variant_id => v).first%>
+	<% ugv = Spree::UserGroupsVariant.where(:user_group_id => @group).where(:variant_id => v).first%>
 	<tr>
 		<td>
 			<%= variant_options(v) %> (<%= v.sku %>)
