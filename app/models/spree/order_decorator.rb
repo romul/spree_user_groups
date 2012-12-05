@@ -1,5 +1,4 @@
 Spree::Order.class_eval do
-
   # Associates the specified user with the order and destroys any previous association with guest user if necessary.
   def associate_user!(user)
     self.user = user

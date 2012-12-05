@@ -25,6 +25,6 @@ class Spree::Calculator::PerVariantPricing < Spree::Calculator
   end
   
   def compute_item(variant)
-      variant.price_for_user(@current_user)
+    Spree::UserGroupsVariant.where(:user_group_id => Spree::User.current.user_group.id, :variant_id => variant.id).try(:first).try(:price) || variant.price
   end
 end

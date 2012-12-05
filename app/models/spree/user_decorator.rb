@@ -7,4 +7,12 @@ Spree::User.class_eval do
       self.user_group.create_adjustment(I18n.t(:user_group_adjustment), order, order, true)
     end
   end
+
+  def self.current
+    Thread.current[:user]
+  end
+
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
 end
