@@ -8,7 +8,11 @@ Spree::Variant.class_eval do
   end
 
   def price
-    return prices.first.amount.to_f if Spree::User.current.nil? or Spree::User.current.user_group.nil?
+    if Spree::User.current.nil? or Spree::User.current.user_group.nil? then
+      return prices.first.amount.to_f unless prices.first.blank? || prices.first.amount.blank?
+      return product.prices.first.amount.to_f unless product.blank? || product.prices.first.blank?
+      return 0
+    end
     Spree::UserGroupsVariant.where(:user_group_id => Spree::User.current.user_group.id, :variant_id => self.id).try(:first).try(:price) || prices.first.amount.to_f
   end
 
