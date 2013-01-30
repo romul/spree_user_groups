@@ -5,7 +5,7 @@ Spree::Order.class_eval do
     self.email = user.email
     
     # Create adjustment for user group
-    self.user.create_adjustment_for(self)
+    #self.user.create_adjustment_for(self)
     
     # disable validations since this can cause issues when associating an incomplete address during the address step
     save(:validate => false)
