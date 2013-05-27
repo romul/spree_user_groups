@@ -15,3 +15,4 @@ en:
   manage_user_groups: "Manage user groups"
   user_group_adjustment: "User Group"
   per_variant_pricing: "Per Variant Pricing"
+  minimum_order: "Minimum order amount of $%{amount} requirement for your group not met"
