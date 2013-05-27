@@ -1,6 +1,6 @@
 class UsergroupVariant < ActiveRecord::Migration
   def self.up
-	      create_table :user_groups_variants do |t|
+	      create_table :spree_user_groups_variants do |t|
 		      t.integer :user_group_id
 		      t.integer :variant_id
 		      t.decimal :price, :precision => 8, :scale => 2
@@ -9,6 +9,6 @@ class UsergroupVariant < ActiveRecord::Migration
   end
 
   def self.down
-	  drop_table :user_groups_variants
+	  drop_table :spree_user_groups_variants
   end
 end

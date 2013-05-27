@@ -17,7 +17,7 @@
   <thead>
     <tr>
       <th><%= Spree::UserGroup.human_attribute_name(:name) %></th>
-      <th><%= t(:description) %>
+      <th><%= t("spree.description") %>
       <th></th>
     </tr>
   </thead>
@@ -33,7 +33,7 @@
       </tr>
     <% end %>
     <% if @user_groups.empty? %>
-      <tr><td colspan="3"><%= t(:none) %></td></tr>
+      <tr><td colspan="3"><%= t("spree.none") %></td></tr>
     <% end %>
   </tbody>
 </table>
