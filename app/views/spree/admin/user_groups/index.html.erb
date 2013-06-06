@@ -1,4 +1,4 @@
-<%= render :partial => 'admin/shared/configuration_menu' %>
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
 <div class='toolbar'>
   <ul class='actions'>
@@ -16,8 +16,8 @@
 <table class="index" id='listing_user_groups'>
   <thead>
     <tr>
-      <th><%= UserGroup.human_attribute_name(:name) %></th>
-      <th><%= t(:description) %>
+      <th><%= Spree::UserGroup.human_attribute_name(:name) %></th>
+      <th><%= t("spree.description") %>
       <th></th>
     </tr>
   </thead>
@@ -27,12 +27,13 @@
         <td><%= user_group.name %></td>
         <td><%= user_group.calculator_description %></td>
         <td class="actions">
+		  <%= link_to 'Pricing',"/admin/user_groups/#{user_group.id}/pricing" if user_group.calculator.class == Spree::Calculator::PerVariantPricing %> &nbsp;
           <%= link_to_edit user_group %> &nbsp;
           <%= link_to_delete user_group %>
       </tr>
     <% end %>
     <% if @user_groups.empty? %>
-      <tr><td colspan="3"><%= t(:none) %></td></tr>
+      <tr><td colspan="3"><%= t("spree.none") %></td></tr>
     <% end %>
   </tbody>
 </table>

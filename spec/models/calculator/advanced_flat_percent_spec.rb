@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe 'Calculator::AdvancedFlatPercent based on master_price' do
-  let(:calculator) { Calculator::AdvancedFlatPercent.new }
+describe 'Spree::Calculator::AdvancedFlatPercent based on master_price' do
+  let(:calculator) { Spree::Calculator::AdvancedFlatPercent.new }
   let(:order) { mock_model Order, :line_items => [mock_model(LineItem, :amount => 10), mock_model(LineItem, :amount => 20)], :user => mock_model(User) }
 
   before { calculator.stub :preferred_flat_percent => 10, :preferred_based_on_cost_price => false }
@@ -22,8 +22,8 @@ describe 'Calculator::AdvancedFlatPercent based on master_price' do
 end
 
 
-describe 'Calculator::AdvancedFlatPercent based on cost_price' do
-  let(:calculator) { Calculator::AdvancedFlatPercent.new }
+describe 'Spree::Calculator::AdvancedFlatPercent based on cost_price' do
+  let(:calculator) { Spree::Calculator::AdvancedFlatPercent.new }
   let(:variant1) { mock_model(Variant, :cost_price => 3, :price => 5) }
   let(:variant2) { mock_model(Variant, :cost_price => 12, :price => 20) }
   let(:order) { mock_model Order, :line_items => [mock_model(LineItem, :amount => 10, :quantity => 2, :variant => variant1), mock_model(LineItem, :amount => 20, :quantity => 1, :variant => variant2)], :user => mock_model(User) }

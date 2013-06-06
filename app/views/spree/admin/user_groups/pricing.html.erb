@@ -1,0 +1,30 @@
+<h1>Pricing for <%= @group.name %></h1>
+<% curr_product = '' %>
+<table>
+	<%= form_for @group do |form| %>
+	<% Spree::Variant.order(:product_id).each do |v|%>
+	<% if curr_product != v.product_id%>
+	<% curr_product = v.product_id %>
+	<tr>
+		<td colspan="3">
+		<h2><%= v.product.name %></h2>
+		</td>
+	</tr>
+	<% end %>
+
+	<% ugv = Spree::UserGroupsVariant.where(:user_group_id => @group).where(:variant_id => v).first%>
+	<tr>
+		<td>
+			<%= variant_options(v) %> (<%= v.sku %>)
+		</td>
+		<td>
+			Master Price (<%= v.price %>)
+		<td>
+			<input name="price[<%= @group.id %>][<%= v.id %>]" value="<%= ugv.price if ugv %>">
+		</td>
+	</tr>
+	<% end %>
+</table>
+<%= form.submit %>
+<% end %>
+
