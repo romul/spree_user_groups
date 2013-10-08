@@ -22,12 +22,12 @@ class Spree::Admin::UserGroupsController < Spree::Admin::ResourceController
   def pricing
     @group = Spree::UserGroup.find(params[:id])
     params[:price][params[:id]].each do |k,v|
-      ugv = UserGroupsVariant.where(:user_group_id => params[:id]).where(:variant_id => k).first
+      ugv = Spree::UserGroupsVariant.where(:user_group_id => params[:id]).where(:variant_id => k).first
       ugv.destroy if v == '' and ugv
       next if v == ''
       ugv.update_attributes(:price => v) if ugv and ugv.price
       next if ugv
-      UserGroupsVariant.create(:user_group_id => params[:id], :variant_id => k, :price => v)
+      Spree::UserGroupsVariant.create(:user_group_id => params[:id], :variant_id => k, :price => v)
     end if params[:price]
   end
   

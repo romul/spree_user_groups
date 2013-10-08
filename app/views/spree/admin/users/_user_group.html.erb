@@ -1,9 +1,4 @@
 <p>
   <label><%= t("user_group") %></label><br />
-  <% for group in Spree::UserGroup.all %>
-    <label class="sub">
-      <%= f.radio_button(:user_group_id, group.id) %>
-      <%= group.name %>
-    </label> &nbsp;
-  <% end %>
+  <%= f.select :user_group_id, Spree::UserGroup.all.collect { |g| [ g.name, g.id ] }, { :include_blank => "None" },  :class => 'select2' %>
 </p>

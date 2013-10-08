@@ -25,6 +25,6 @@ class Spree::Calculator::PerVariantPricing < Spree::Calculator
   end
   
   def compute_item(variant)
-      variant.price_for_user(@current_user)
+    variant.price_for_user(current_user)
   end
 end
