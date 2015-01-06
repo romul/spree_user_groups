@@ -8,10 +8,10 @@ Deface::Override.new(:virtual_path=> "#{path}/index",
 
 Deface::Override.new(:virtual_path=> "#{path}/index",
   :name=> "minimum_order_column_body",
-  :insert_after=> "code[erb-loud]:contains('user_group.calculator_description')",
+  :insert_after=> "erb[loud]:contains('user_group.calculator_description')",
   :text=> "<td><%= user_group.minimum_order %></td>")
 
 Deface::Override.new(:virtual_path=> "#{path}/_form",
   :name=> "minimum_order_edit_field",
-  :insert_after=> "code[erb-loud]:contains('f.text_field :name')",
+  :insert_after=> "erb[loud]:contains('f.text_field :name')",
   :text=> "<br /> <%= f.label :minimum_order %> <br /> <%= f.text_field :minimum_order %>")
