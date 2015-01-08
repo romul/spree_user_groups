@@ -3,6 +3,7 @@ SpreeUserGroups
 
 Introduces user groups and calculator to add adjustment for specified user group.
 
+*PROCEED WITH CAUTION:* This has been updated to display correctly in 2.4, but I have not verified functionality
 
 Installation
 ============
