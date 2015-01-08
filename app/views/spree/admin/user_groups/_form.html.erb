@@ -1,5 +1,13 @@
-<%= f.field_container :name do %>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
-<% end %>
-<%= render "/spree/admin/shared/calculator_fields", :f => f %>
+<div data-hook="admin_user_group_form_fields" class="alpha twelve columns">
+  <div data-hook="admin_user_group_form_name_field" class="alpha six columns">
+    <%= f.field_container :name do %>
+      <%= f.label :name, Spree.t(:name) %><br />
+      <%= f.text_field :name, :class => 'fullwidth' %>
+      <%= error_message_on :user_group, :name %>
+    <% end %>
+  </div>
+</div>
+
+<div data-hook="admin_user_group_form_calculator_fields" class="omega six columns">
+  <%= render :partial => 'spree/admin/shared/calculator_fields', :locals => { :f => f } %>
+</div>

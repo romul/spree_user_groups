@@ -3,16 +3,28 @@ en:
     attributes:
       address:
         name: "Name"
-  
-  user_group: "User Group"
-  user_groups: "User Groups"
-  listing_user_groups: "User Groups"
-  new_user_group: "New user group"
-  editing_user_group: "Editing user group"
-  based_on_cost_price: "Based on cost price"
-  based_on_master_price: "Based on master price"
-  advanced_flat_percent: "Advanced Flat Percent"
-  manage_user_groups: "Manage user groups"
-  user_group_adjustment: "User Group"
-  per_variant_pricing: "Per Variant Pricing"
-  minimum_order: "Minimum order amount of $%{amount} requirement for your group not met"
+    models:
+      spree/user_group:
+        one: User Group
+        other: User Groups
+
+  spree:
+    price: "Price"
+    cost_price: "Cost Price"
+    user_group: "User Group"
+    user_groups: "User Groups"
+    listing_user_groups: "User Groups"
+    new_user_group: "New user group"
+    editing_user_group: "Editing user group"
+    based_on_cost_price: "Based on cost price"
+    based_on_master_price: "Based on master price"
+    advanced_flat_percent: "Advanced Flat Percent"
+    manage_user_groups: "Manage user groups"
+    user_group_adjustment: "User Group"
+    per_variant_pricing: "Per Variant Pricing"
+    minimum_order: "Minimum Order"
+    per_variant_pricing_for: "Per Variant Pricing for"
+    minimum_order_not_met: "Minimum order amount of $%{amount} requirement for your group not met"
+    back_to_user_groups_list: Back To User Groups List
+    master: "Master"
+    variant_pricing_updated_successfully: Variant Pricing Updated Succesfully

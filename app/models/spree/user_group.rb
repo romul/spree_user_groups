@@ -7,7 +7,7 @@ class Spree::UserGroup < ActiveRecord::Base
   include Spree::CalculatedAdjustments
   
   def calculator_description
-    return t(:none) if calculator.nil?
+    return Spree.t(:none) if calculator.nil?
     calculator.description
   end
 

@@ -1,30 +1,29 @@
-<h1>Pricing for <%= @group.name %></h1>
-<% curr_product = '' %>
-<table>
-	<%= form_for @group do |form| %>
-	<% Spree::Variant.order(:product_id).each do |v|%>
-	<% if curr_product != v.product_id%>
-	<% curr_product = v.product_id %>
-	<tr>
-		<td colspan="3">
-		<h2><%= v.product.name %></h2>
-		</td>
-	</tr>
-	<% end %>
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-	<% ugv = Spree::UserGroupsVariant.where(:user_group_id => @group).where(:variant_id => v).first%>
-	<tr>
-		<td>
-			<%= variant_options(v) %> (<%= v.sku %>)
-		</td>
-		<td>
-			Master Price (<%= v.price %>)
-		<td>
-			<input name="price[<%= @group.id %>][<%= v.id %>]" value="<%= ugv.price if ugv %>">
-		</td>
-	</tr>
-	<% end %>
-</table>
-<%= form.submit %>
+<% content_for :page_title do %>
+  <%= Spree.t(:per_variant_pricing_for) %> <%= @user_group.name %>
 <% end %>
 
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:back_to_user_groups_list), spree.admin_user_groups_path, :icon => 'arrow-left' %>
+  </li>
+<% end %>
+
+<div data-hook="admin_user_group_edit_form_header">
+  <%= render :partial => 'spree/shared/error_messages', :locals => {:target => @user_group} %>
+</div>
+
+<div data-hook="admin_user_group_edit_form">
+  <%= form_for [:admin, @user_group], url: pricing_admin_user_group_url(@user_group) do |f| %>
+    <fieldset class="no-border-top">
+      <%= render :partial => 'pricing_form', :locals => {:f => f} %>
+
+      <div class="clear"></div>
+
+      <div data-hook="admin_user_group_edit_form_buttons">
+        <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>

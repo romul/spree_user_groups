@@ -1,4 +1,4 @@
 <p>
-  <label><%= t("user_group") %></label><br />
-  <%= f.select :user_group_id, Spree::UserGroup.all.collect { |g| [ g.name, g.id ] }, { :include_blank => "None" },  :class => 'select2' %>
+  <label><%= Spree.t('user_group') %></label><br />
+  <%= f.select :user_group_id, Spree::UserGroup.all.collect { |g| [ g.name, g.id ] }, { :include_blank => 'None' },  :class => 'select2' %>
 </p>
