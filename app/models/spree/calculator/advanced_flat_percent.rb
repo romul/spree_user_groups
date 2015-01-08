@@ -3,7 +3,7 @@ class Spree::Calculator::AdvancedFlatPercent < Spree::Calculator
   preference :based_on_cost_price, :boolean, :default => false
 
   def self.description
-    Spree.t('advanced_flat_percent')
+    Spree.t(:advanced_flat_percent)
   end
 
   def description

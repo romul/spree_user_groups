@@ -1,10 +1,10 @@
 class Spree::Calculator::PerVariantPricing < Spree::Calculator
   def self.description
-    Spree.t('per_variant_pricing')
+    Spree.t(:per_variant_pricing)
   end
   
   def description
-    Spree.t('per_variant_pricing')
+    Spree.t(:per_variant_pricing)
   end
   
   def has_pricing_config
