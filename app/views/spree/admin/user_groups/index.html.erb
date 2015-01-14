@@ -39,7 +39,7 @@
   </table>
 <% else %>
   <div class="alpha twelve columns no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: Spree.t(:other, scope: 'activerecord.models.spree/user_group')) %>,
+    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/user_group')) %>,
     <%= link_to Spree.t(:add_one), spree.new_admin_user_group_path %>!
   </div>
 <% end %>
