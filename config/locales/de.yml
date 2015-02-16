@@ -1,0 +1,30 @@
+de:
+  activerecord:
+    attributes:
+      address:
+        name: "Name"
+    models:
+      spree/user_group:
+        one: User Group
+        other: User Groups
+
+  spree:
+    price: "Price"
+    cost_price: "Cost Price"
+    user_group: "Benutzergruppe"
+    user_groups: "Benutzergruppen"
+    listing_user_groups: "Benutzergruppen"
+    new_user_group: "Neue Benutzergruppen"
+    editing_user_group: "Benutzergruppe bearbeiten"
+    based_on_cost_price: "Basierend auf Einkaufspreis"
+    based_on_master_price: "Basierend auf Verkaufspreis"
+    advanced_flat_percent: "Advanced Flat Percent"
+    manage_user_groups: "Benutzergruppen verwalten"
+    user_group_adjustment: "Benutzergruppe"
+    per_variant_pricing: "Per Variant Pricing"
+    minimum_order: "Minimum Order"
+    per_variant_pricing_for: "Per Variant Pricing for"
+    minimum_order_not_met: "Minimum order amount of $%{amount} requirement for your group not met"
+    back_to_user_groups_list: Back To User Groups List
+    master: "Master"
+    variant_pricing_updated_successfully: Variant Pricing Updated Succesfully
