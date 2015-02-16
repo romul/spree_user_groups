@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_user_groups'
-  s.version     = '0.51.0'
+  s.version     = '3.0.0'
   s.summary     = 'Adds user groups'
   s.description = 'Provides opportunity to add some rules for calculation price depending on the user group'
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 2.1.2'
 
   s.author            = 'Roman Smirnov'
-  s.email             = 'roman@railsdog.com'
+  s.email             = 'POMAHC@gmail.com'
   s.homepage          = 'https://github.com/romul/spree_user_groups'
   # s.rubyforge_project = 'actionmailer'
 
@@ -18,9 +18,8 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = true
 
-  s.add_dependency('spree_core', '~> 2.4.0')
-  s.add_dependency('spree_auth_devise', '~> 2.2.0')
-  s.add_dependency('resource_controller','=0.6.6')
+  s.add_dependency('spree_core', '~> 3.0.0.rc')
+  s.add_dependency('spree_auth_devise', '~> 3.0.0.rc')
 
   s.add_development_dependency 'capybara', '~> 2.4'
   s.add_development_dependency 'coffee-rails'
@@ -34,4 +33,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-activemodel-mocks'
   s.add_development_dependency 'shoulda-matchers'
+  s.add_development_dependency 'pry-rails', '>= 0.3.0'
 end

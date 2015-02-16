@@ -4,6 +4,9 @@ class Spree::UserGroup < ActiveRecord::Base
   has_many :user_groups_variants
   has_many :variants, :through => :user_groups_variants
 
+  extend Spree::DisplayMoney
+  money_methods :minimum_order
+
   include Spree::CalculatedAdjustments
   
   def calculator_description
@@ -11,7 +14,11 @@ class Spree::UserGroup < ActiveRecord::Base
     calculator.description
   end
 
-  def price_for_variant variant
-    user_groups_variants.where(variant: variant).first.try(:price)
+  def price_for_variant variant, orig_price
+    if calculator.is_a?(Spree::Calculator::PerVariantPricing)
+      user_groups_variants.where(variant: variant).first.try(:price)
+    else
+      calculator.compute_item(variant, orig_price)
+    end
   end
 end

@@ -1,4 +1,4 @@
-<p>
-  <label><%= Spree.t(:user_group) %></label><br />
+<%= f.field_container :user_group_id, class: ['form-group'] do %>
+  <%= f.label :user_group_id, Spree.t(:user_group) %><br />
   <%= f.select :user_group_id, Spree::UserGroup.all.collect { |g| [ g.name, g.id ] }, { :include_blank => 'None' },  :class => 'select2' %>
-</p>
+<% end %>

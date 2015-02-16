@@ -1,11 +1,14 @@
-<% curr_product = '' %>
-<table class="index" id='listing_user_group_variants'>
+<% curr_product_id = nil %>
+<table class="table" id='listing_user_group_variants'>
   <% Spree::Variant.order(:product_id).each do |v| %>
-    <% if curr_product != v.product_id %>
-      <% curr_product = v.product_id %>
+    <% if curr_product_id != v.product_id %>
+      <% curr_product_id = v.product_id %>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
       <tr>
         <td colspan="3">
-          <h2><%= v.product.name %></h2>
+          <strong><%= v.product.name %></strong>
         </td>
       </tr>
     <% end %>
@@ -16,10 +19,10 @@
         <%= variant_options(v) || Spree.t(:master) %> (<%= v.sku %>)
       </td>
       <td>
-        Base Price (<%= v.price || Spree.t(:master).downcase %>)
+        Base Price (<%= v.display_price || Spree.t(:master).downcase %>)
       <td>
         <div data-hook="price" class="field">
-          <%= text_field_tag "price[#{@user_group.id}][#{v.id}]", (ugv.price if ugv), :class => 'fullwidth' %>
+          <%= text_field_tag "price[#{@user_group.id}][#{v.id}]", (ugv.price if ugv), :class => 'form-control' %>
         </div>
       </td>
     </tr>

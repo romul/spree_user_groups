@@ -12,11 +12,11 @@ describe Spree::UserGroup do
     let(:user_group_valid) { Spree::UserGroup.new :name => "Wholesaler", calculator: calculator }
 
     context "when is invalid" do
-      it { user_group.save.should be_falsey }
+      it { expect(user_group.save).to be false }
     end
 
     context "when is valid" do
-      it { user_group_valid.save.should be_truthy }
+      it { expect(user_group_valid.save).to be true }
     end
   end
 end

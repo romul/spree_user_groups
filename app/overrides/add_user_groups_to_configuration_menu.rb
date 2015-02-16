@@ -1,9 +1,4 @@
-Deface::Override.new(:virtual_path  => "spree/admin/configurations/index",
-                     :name          => "add_user_group",
-                     :insert_bottom => "[data-hook='admin_configurations_menu'], #admin_configurations_menu[data-hook]",
-                     :text          => "<%= configurations_menu_item(Spree.t(:user_groups), admin_user_groups_path, Spree.t(:manage_user_groups)) %>")
-
-Deface::Override.new(:virtual_path  => "spree/admin/shared/_configuration_menu",
+Deface::Override.new(:virtual_path  => "spree/admin/shared/sub_menu/_configuration",
                      :name          => "add_user_groups_to_configuration_menu",
-                     :insert_bottom => "[data-hook='admin_configurations_sidebar_menu'], #admin_configurations_sidebar_menu[data-hook]",
+                     :insert_bottom => "[data-hook='admin_configurations_sidebar_menu']",
                      :text          => "<%= configurations_sidebar_menu_item Spree.t(:user_groups), admin_user_groups_path %>")

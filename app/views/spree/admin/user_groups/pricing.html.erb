@@ -1,13 +1,9 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:per_variant_pricing_for) %> <%= @user_group.name %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li>
-    <%= button_link_to Spree.t(:back_to_user_groups_list), spree.admin_user_groups_path, :icon => 'arrow-left' %>
-  </li>
+  <%= button_link_to Spree.t(:back_to_user_groups_list), spree.admin_user_groups_path, :icon => 'arrow-left' %>
 <% end %>
 
 <div data-hook="admin_user_group_edit_form_header">
@@ -16,14 +12,9 @@
 
 <div data-hook="admin_user_group_edit_form">
   <%= form_for [:admin, @user_group], url: pricing_admin_user_group_url(@user_group) do |f| %>
-    <fieldset class="no-border-top">
+    <fieldset>
       <%= render :partial => 'pricing_form', :locals => {:f => f} %>
-
-      <div class="clear"></div>
-
-      <div data-hook="admin_user_group_edit_form_buttons">
-        <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
-      </div>
+      <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
     </fieldset>
   <% end %>
 </div>

@@ -1,23 +1,6 @@
 class Spree::Admin::UserGroupsController < Spree::Admin::ResourceController
-  :resource_controller
   before_filter :load_data
 
-  update do
-    redirect_to edit_object_url
-    wants.html
-  end
-
-  create do
-    redirect_to edit_object_url
-    wants.html
-  end
-
-  destroy do
-    success do
-      render_js_for_destroy
-      wants.js
-    end
-  end
 
   def pricing
     params[:price][params[:id]].each do |k,v|

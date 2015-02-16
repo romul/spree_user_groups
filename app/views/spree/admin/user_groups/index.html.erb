@@ -1,21 +1,18 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:user_groups) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li>
-    <%= button_link_to Spree.t(:new_user_group), new_object_url, :icon => 'plus', :id => 'admin_new_user_group_link' %>
-  </li>
+  <%= button_link_to Spree.t(:new_user_group), new_object_url, :icon => 'plus', :id => 'admin_new_user_group_link', class: 'btn-success' %>
 <% end %>
 
 <% if @user_groups.any? %>
-  <table class="index" id='listing_user_groups'>
+  <table class="table" id='listing_user_groups'>
     <thead>
     <tr data-hook="admin_user_groups_index_headers">
       <th><%= Spree.t(:name) %></th>
       <th><%= Spree.t(:calculator) %></th>
+      <th><%= Spree.t(:minimum_order) %></th>
       <th data-hook="admin_user_groups_index_header_actions" class="actions"></th>
     </tr>
     </thead>
@@ -24,6 +21,7 @@
       <tr id="<%= spree_dom_id user_group %>" data-hook="admin_user_groups_index_rows" class="<%= cycle('odd', 'even') %>">
         <td class="align-center"><%= user_group.name %></td>
         <td class="align-center"><%= user_group.calculator_description %></td>
+        <td class="align-center"><%= user_group.display_minimum_order %></td>
         <td data-hook="admin_user_groups_index_row_actions" class="actions">
           <%= link_to_with_icon('dollar', Spree.t(:per_variant_pricing), "/admin/user_groups/#{user_group.id}/pricing", {:data => {:action => 'edit'}, :no_text => true}) if user_group.calculator.class == Spree::Calculator::PerVariantPricing %>
           <%= link_to_edit user_group, :no_text => true %>
@@ -38,7 +36,7 @@
     </tbody>
   </table>
 <% else %>
-  <div class="alpha twelve columns no-objects-found">
+  <div class="alert alert-info no-objects-found">
     <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/user_group')) %>,
     <%= link_to Spree.t(:add_one), spree.new_admin_user_group_path %>!
   </div>

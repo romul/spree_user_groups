@@ -1,3 +1,6 @@
-Factory.define(:user_group) do |f|
-  f.name { "Wholesaler" }
+FactoryGirl.define do
+  factory :user_group, class: Spree::UserGroup do
+    name { "Wholesaler" }
+    calculator { Spree::Calculator::PerVariantPricing.new }
+  end
 end
