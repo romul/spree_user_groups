@@ -23,7 +23,7 @@
         <td class="align-center"><%= user_group.calculator_description %></td>
         <td class="align-center"><%= user_group.display_minimum_order %></td>
         <td data-hook="admin_user_groups_index_row_actions" class="actions">
-          <%= link_to_with_icon('dollar', Spree.t(:per_variant_pricing), pricing_admin_user_group_path(user_group.id), {:data => {:action => 'edit'}, :no_text => true}) if user_group.calculator.class == Spree::Calculator::PerVariantPricing %>
+          <%= link_to_with_icon('usd', Spree.t(:per_variant_pricing), pricing_admin_user_group_path(user_group.id), {:data => {:action => 'edit'}, class: 'btn btn-default btn-sm', :no_text => true}) if user_group.calculator.class == Spree::Calculator::PerVariantPricing %>
           <%= link_to_edit user_group, :no_text => true %>
           <%= link_to_delete user_group, :no_text => true %>
       </tr>
